@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Voice Avatar ESP32 - Draxi
+#  Voice Avatar ESP32 - Diome
 
 ![Robot Draxi](./robot.jpg)
 
