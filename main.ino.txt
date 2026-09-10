@@ -1,0 +1,61 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <ESP32Servo.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+Servo servo1;
+Servo servo2;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Pines I2C para pantalla OLED
+  Wire.begin(21, 22);
+  
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    for(;;);
+  }
+  
+  // Pines PWM para Servos
+  servo1.attach(17);
+  servo2.attach(19);
+  
+  caraNeutra();
+}
+
+void caraNeutra() {
+  display.clearDisplay();
+  display.fillCircle(40, 30, 10, SSD1306_WHITE);  // Ojo izq
+  display.fillCircle(88, 30, 10, SSD1306_WHITE);  // Ojo der
+  display.fillRect(50, 50, 28, 4, SSD1306_WHITE);   // Boca neutra
+  display.display();
+}
+
+void caraHablando() {
+  display.clearDisplay();
+  display.fillCircle(40, 30, 10, SSD1306_WHITE);
+  display.fillCircle(88, 30, 10, SSD1306_WHITE);
+  display.fillCircle(64, 50, 8, SSD1306_WHITE);   // Boca abierta
+  display.display();
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char comando = Serial.read();
+    
+    if (comando == 'M') {
+      caraHablando();
+      servo1.write(90);
+      servo2.write(90);
+    } 
+    else if (comando == 'N') {
+      caraNeutra();
+      servo1.write(0);
+      servo2.write(0);
+    }
+  }
+}
