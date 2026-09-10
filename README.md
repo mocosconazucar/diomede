@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Voice Avatar ESP32 - Draxi
+#  Voice Avatar ESP32 - Draxi
 
 ![Robot Draxi](./robot.jpg)
 
@@ -10,13 +10,13 @@
 
 </div>
 
-## 📌 Breve Explicación del Proyecto
+##  Breve Explicación del Proyecto
 **Draxi** es un avatar robótico interactivo que actúa como puente entre una PC y un microcontrolador ESP32. El sistema permite que el robot reaccione en tiempo real al texto ingresado en la consola de la computadora, sincronizando la emisión de voz hablada desde las bocinas del equipo con animaciones faciales en la pantalla OLED y gestos físicos mediante servomotores.
 
-## 🎯 Propósito del Proyecto
+##  Propósito del Proyecto
 El propósito de **Draxi** es ofrecer una interfaz robótica expresiva, didáctica y de bajo costo para proyectos interactivos de la Semana TP. Busca comunicar mensajes mediante síntesis de voz (SAPI5) mientras coordina gesticulaciones físicas en tiempo real (pantalla OLED y servomotores) a través de comunicación por puerto serial a 115200 baudios.
 
-## 🛠️ Herramientas Ocupadas
+##  Herramientas Ocupadas
 ### Hardware:
 * **ESP32** (Microcontrolador principal)
 * **Pantalla OLED SSD1306** (Conexión I2C en pines SDA: G21, SCL: G22)
@@ -29,7 +29,7 @@ El propósito de **Draxi** es ofrecer una interfaz robótica expresiva, didácti
 * **`main.ino`**: Firmware C++ para el ESP32 que dibuja expresiones en la pantalla OLED y opera los servomotores.
 * **Git & GitHub**: Control de versiones y alojamiento del proyecto.
 
-## 🚀 Instrucciones de Uso
+##  Instrucciones de Uso
 1. Cargar el firmware `main.ino` al ESP32 desde Arduino IDE y cerrar el Monitor Serie.
 2. Conectar el ESP32 a la PC mediante USB en el puerto `COM8`.
 3. Abrir la terminal en la carpeta del proyecto y ejecutar:
